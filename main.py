@@ -64,7 +64,19 @@ class ColorModifier(QWidget):
         layout.addWidget(self.btn_darken)
         self.setLayout(layout)
 
+    def lighten_color(self):
+        color = self.input_color.text()
+        percent = int(self.input_percent.text())
+        new_color = lighten(color, percent)
+        self.input_color.setText(new_color)
+
+    def darken_color(self):
+        color = self.input_color.text()
+        percent = int(self.input_percent.text())
+        new_color = darken(color, percent)
+        self.input_color.setText(new_color)
         
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = ColorModifier()
