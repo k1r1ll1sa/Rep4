@@ -20,7 +20,7 @@ def lighten(color: str, percent: int) -> str:
 
 
 def darken(color: str, percent: int) -> str:
-    # Преобразование строки в без символа '#'
+    # Преобразование строки в строки без символа '#'
     color = color[1:]
     # Разделение цвета на составляющие
     r = int(color[0:2], 16)
