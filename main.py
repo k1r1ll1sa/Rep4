@@ -41,6 +41,30 @@ def darken(color: str, percent: int) -> str:
     return new_color
 
 
+class ColorModifier(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.init_ui()
+
+    def init_ui(self):
+        self.label_color = QLabel("Цвет:")
+        self.input_color = QLineEdit()
+        self.label_percent = QLabel("Процент:")
+        self.input_percent = QLineEdit()
+        self.btn_lighten = QPushButton("Осветлить")
+        self.btn_lighten.clicked.connect(self.lighten_color)
+        self.btn_darken = QPushButton("Затемнить")
+        self.btn_darken.clicked.connect(self.darken_color)
+        layout = QVBoxLayout()
+        layout.addWidget(self.label_color)
+        layout.addWidget(self.input_color)
+        layout.addWidget(self.label_percent)
+        layout.addWidget(self.input_percent)
+        layout.addWidget(self.btn_lighten)
+        layout.addWidget(self.btn_darken)
+        self.setLayout(layout)
+
+        
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = ColorModifier()
